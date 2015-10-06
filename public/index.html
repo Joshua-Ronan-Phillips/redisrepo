@@ -10,8 +10,9 @@
             <input type="text" name="item" id = "input"></input>
             <input type="submit" id="submit"></input>
         </form>
-        <ul class="favourite-things">
+        <ul id="favourite-things">
         </ul>
+
         <script>document.getElementById('submit').addEventListener('click', function(event){
             event.preventDefault();
           var input = document.getElementById("input").value;
@@ -19,11 +20,25 @@
           var request = new XMLHttpRequest();
           request.onreadystatechange=function(){
               console.log('test');
-
+            console.log(request.responseText);
+            var responseString = request.responseText;
+            var array = responseString.split(',');
+            listCallback(array);
           };
           request.open("POST", "/post/" + input, true);
           request.send();
         });
+
+        function listCallback(array) {
+    var listContainer = document.getElementById('favourite-things');
+    var growingList = "";
+    var thisWord;
+    for (var i = 0; i < array.length; i++) {
+        thisWord = array[i];
+        growingList += '<li class="suggestion">' + thisWord + '</li>';
+    }
+    listContainer.innerHTML = growingList;
+}
 </script>
     </body>
 </html>

@@ -18,11 +18,12 @@ function handler(request, response) {
     } else if (request.url.indexOf('/post') > -1) {
         console.log('post');
         client.rpush("favourites", input, function(err, reply){
-          
+
         });
         client.lrange('favourites', 0,-1, function(err, reply){
           var list = reply.toString();
           console.log(reply);
+          response.end('test' +list);
         });
 
 
