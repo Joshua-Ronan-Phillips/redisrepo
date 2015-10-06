@@ -1,21 +1,29 @@
-<h5>My Favourite Things</h5>
-<form>
-    <input type="text" name="item" id = "input"></input>
-    <input type="submit" id="submit"></input>
-</form>
-<ul class="favourite-things">
-</ul>
-<script>
- document.getElementById('submit').addEventListener('click', function(){
-  var input = document.getElementById("input").value;
-  console.log(input);
-  var request = new XMLHttpRequest();
-  request.onreadystatechange=function(){
-     if(request.readyState === 4){
-      console.log(request.responseText);
-     }
-  request.open("POST", "/post");
-  request.send(input);
-  };
-});
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h5>My Favourite Things</h5>
+        <form>
+            <input type="text" name="item" id = "input"></input>
+            <input type="submit" id="submit"></input>
+        </form>
+        <ul class="favourite-things">
+        </ul>
+        <script>document.getElementById('submit').addEventListener('click', function(event){
+            event.preventDefault();
+          var input = document.getElementById("input").value;
+          console.log(input);
+          var request = new XMLHttpRequest();
+          request.onreadystatechange=function(){
+              console.log('test');
+
+          };
+          request.open("POST", "/post/" + input, true);
+          request.send();
+        });
 </script>
+    </body>
+</html>

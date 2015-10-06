@@ -7,7 +7,7 @@ document.getElementById('submit').addEventListener('click', function(){
      if(request.readyState === 4){
       console.log(request.responseText);
      }
-  request.open("POST", "/post");
+  request.open("POST", "/post/" + input, true);
   request.send(input);
   };
 });
