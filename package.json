@@ -1,0 +1,19 @@
+{
+  "name": "redisrepo",
+  "version": "1.0.0",
+  "description": "redisworkshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joshua-Ronan-Phillips/redisrepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joshua-Ronan-Phillips/redisrepo/issues"
+  },
+  "homepage": "https://github.com/Joshua-Ronan-Phillips/redisrepo#readme"
+}
