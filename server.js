@@ -1,5 +1,8 @@
 var http = require('http');
 var fs = require('fs');
+var redis = require("redis");
+var client = redis.createClient();
+var frontend = fs.readFileSync(__dirname + '/public/frontend.js');
 var index = fs.readFileSync(__dirname + '/public/index.html');
 
 
@@ -12,8 +15,8 @@ function handler(request, response) {
     if (url.length === 1) {
       response.writeHead(200, {"Content-Type": "text/html"});
       response.end(index);
-    }else if(request.url.indexOf('/put')>-1){
-      console.log('put');
+    }else if(request.url.indexOf('/post')>-1){
+      console.log('post');
     }else if(request.url.indexOf('/display')>-1){
       console.log('displaying');
     }else if (request.url.indexOf('/delete')>-1){
