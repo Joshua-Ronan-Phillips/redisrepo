@@ -34,6 +34,5 @@ function handler(request, response) {
       });
     }
 
-
-http.createServer(handler).listen(port);
 }
+http.createServer(handler).listen(port);
