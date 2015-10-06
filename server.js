@@ -12,11 +12,20 @@ var port = process.env.PORT || 8000;
 function handler(request, response) {
     //display 'HELLO WORLD' when the user is on the home page
     var url = request.url; //e.g. '/'
+    console.log(url);
     if (url.length === 1) {
       response.writeHead(200, {"Content-Type": "text/html"});
       response.end(index);
-    }else if(request.url.indexOf('/post')>-1){
-      console.log('post');
+    } else if (request.url.indexOf('/post') > -1) {
+        console.log('post');
+        client.rpush("favourites", input, function(err, reply) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log(reply);
+            }
+        });
     }else if(request.url.indexOf('/display')>-1){
       console.log('displaying');
     }else if (request.url.indexOf('/delete')>-1){
